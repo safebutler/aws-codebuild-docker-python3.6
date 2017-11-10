@@ -20,7 +20,7 @@ FROM ubuntu:17.10
 ##########################################################################
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-       wget python python2.7-dev fakeroot ca-certificates tar gzip zip \
+       wget fakeroot ca-certificates tar gzip zip \
        autoconf automake bzip2 file g++ gcc imagemagick libbz2-dev libc6-dev libcurl4-openssl-dev \
        libdb-dev libevent-dev libffi-dev libgeoip-dev libglib2.0-dev libjpeg-dev libkrb5-dev \
        liblzma-dev libmagickcore-dev libmagickwand-dev libmysqlclient-dev libncurses-dev libpng-dev \
