@@ -18,17 +18,17 @@ FROM ubuntu:17.10
 # Building git from source code:
 #   Ubuntu's default git package is built with broken gnutls. Rebuild git with openssl.
 ##########################################################################
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
+RUN apt-get update
+RUN apt-get install -y --no-install-recommends \
        wget fakeroot ca-certificates tar gzip zip \
        autoconf automake bzip2 file g++ gcc imagemagick libbz2-dev libc6-dev libcurl4-openssl-dev \
        libdb-dev libevent-dev libffi-dev libgeoip-dev libglib2.0-dev libjpeg-dev libkrb5-dev \
        liblzma-dev libmagickcore-dev libmagickwand-dev libmysqlclient-dev libncurses-dev libpng-dev \
        libpq-dev libreadline-dev libsqlite3-dev libssl-dev libtool libwebp-dev libxml2-dev libxslt-dev \
-       libyaml-dev make patch xz-utils zlib1g-dev unzip curl \
-    && apt-get -qy build-dep git \
-    && apt-get -qy install libcurl4-openssl-dev git-man liberror-perl \
-    && mkdir -p /usr/src/git-openssl \
+       libyaml-dev make patch xz-utils zlib1g-dev unzip curl
+RUN apt-get -qy build-dep git
+RUN apt-get -qy install libcurl4-openssl-dev git-man liberror-perl
+RUN mkdir -p /usr/src/git-openssl \
     && cd /usr/src/git-openssl \
     && apt-get source git \
     && cd $(find -mindepth 1 -maxdepth 1 -type d -name "git-*") \
