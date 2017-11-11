@@ -11,12 +11,10 @@
 # See the License for the specific language governing permissions and limitations under the License.
 #
 
-# "Ubuntu 17.10 already comes with Python 3.6 as default. Just run python3 to invoke it."
+# Ubuntu 17.10's python3 is 3.6.3 (as of 11/10/2017)
 # https://askubuntu.com/questions/865554/how-do-i-install-python-3-6-using-apt-get
 FROM ubuntu:17.10
 
-# Building git from source code:
-#   Ubuntu's default git package is built with broken gnutls. Rebuild git with openssl.
 ##########################################################################
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends \
@@ -67,3 +65,13 @@ RUN set -x \
 VOLUME /var/lib/docker
 
 ENTRYPOINT ["dockerd-entrypoint.sh"]
+
+##########################################################################
+#  Customize the build environment for our own stack
+##########################################################################
+
+# Install node7
+RUN curl -sL https://deb.nodesource.com/setup_7.x | bash -
+RUN apt-get install --yes nodejs
+RUN pip3 install --upgrade pip setuptools
+RUN pip3 install --upgrade --user awscli
