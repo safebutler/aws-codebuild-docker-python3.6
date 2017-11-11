@@ -33,8 +33,8 @@ RUN wget "https://bootstrap.pypa.io/get-pip.py" -O /tmp/get-pip.py \
     && pip3 install awscli==1.11.25 \
     && rm -fr /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
-RUN apt-get install -y --no-install-recommends less
-RUN apt-get install -y --no-install-recommends vim
+#RUN apt-get install -y --no-install-recommends less
+#RUN apt-get install -y --no-install-recommends vim
 
 RUN apt-get install --yes jq
 # upgrade jq to 1.5. http://stackoverflow.com/questions/36462955/upgrading-jq-to-1-5-on-ubuntu
