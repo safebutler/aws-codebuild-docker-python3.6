@@ -13,7 +13,7 @@
 
 # Ubuntu 17.10's python3 is 3.6.3 (as of 11/10/2017)
 # https://askubuntu.com/questions/865554/how-do-i-install-python-3-6-using-apt-get
-FROM dannyzhong/python3node7
+FROM dannyzhong/python3node7:latest
 
 ##########################################################################
 RUN apt-get update
