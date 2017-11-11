@@ -13,12 +13,12 @@
 
 # Ubuntu 17.10's python3 is 3.6.3 (as of 11/10/2017)
 # https://askubuntu.com/questions/865554/how-do-i-install-python-3-6-using-apt-get
-FROM ubuntu:17.10
+FROM dannyzhong/python3node7
 
 ##########################################################################
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends \
-       python3 python3-pip python3-dev  # python3-dev needed by awscli
+       python3-pip python3-dev  # python3-dev needed by awscli
 RUN apt-get install -y --no-install-recommends \
        wget fakeroot ca-certificates tar gzip zip \
        autoconf automake bzip2 file g++ gcc imagemagick libbz2-dev libc6-dev libcurl4-openssl-dev \
