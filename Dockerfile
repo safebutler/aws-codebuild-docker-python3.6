@@ -28,13 +28,8 @@ RUN apt-get install -y --no-install-recommends \
        libpq-dev libreadline-dev libsqlite3-dev libssl-dev libtool libwebp-dev libxml2-dev libxslt-dev \
        libyaml-dev make patch xz-utils zlib1g-dev unzip curl git
 
-RUN wget "https://bootstrap.pypa.io/get-pip.py" -O /tmp/get-pip.py \
-    && python3 /tmp/get-pip.py \
-    && pip3 install awscli==1.11.25 \
-    && rm -fr /var/lib/apt/lists/* /tmp/* /var/tmp/* 
-
-#RUN apt-get install -y --no-install-recommends less
-#RUN apt-get install -y --no-install-recommends vim
+RUN apt-get install -y --no-install-recommends less
+RUN apt-get install -y --no-install-recommends vim
 
 RUN apt-get install --yes jq
 # upgrade jq to 1.5. http://stackoverflow.com/questions/36462955/upgrading-jq-to-1-5-on-ubuntu
@@ -47,6 +42,12 @@ RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get install --yes nodejs
 RUN pip3 install --upgrade pip setuptools
 RUN pip3 install --upgrade --user awscli
+
+
+RUN wget "https://bootstrap.pypa.io/get-pip.py" -O /tmp/get-pip.py \
+    && python3 /tmp/get-pip.py \
+    && pip3 install awscli==1.11.25 \
+    && rm -fr /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
 ENV DOCKER_BUCKET="get.docker.com" \
     DOCKER_VERSION="1.12.1" \
