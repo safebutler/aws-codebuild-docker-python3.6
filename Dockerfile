@@ -13,12 +13,12 @@
 
 # Ubuntu 17.10's python3 is 3.6.3 (as of 11/10/2017)
 # https://askubuntu.com/questions/865554/how-do-i-install-python-3-6-using-apt-get
-FROM dannyzhong/python3node7:latest
+FROM ubuntu:17.10
 
 ##########################################################################
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends \
-       python3-pip python3-dev  # python3-dev needed by awscli
+       python3 python3-pip python3-dev  # python3-dev needed by awscli
 RUN apt-get install -y --no-install-recommends \
        wget fakeroot ca-certificates tar gzip zip \
        autoconf automake bzip2 file g++ gcc imagemagick libbz2-dev libc6-dev libcurl4-openssl-dev \
@@ -71,7 +71,7 @@ ENTRYPOINT ["dockerd-entrypoint.sh"]
 ##########################################################################
 
 # Install node7
-RUN curl -sL https://deb.nodesource.com/setup_7.x | bash -
-RUN apt-get install --yes nodejs
-RUN pip3 install --upgrade pip setuptools
-RUN pip3 install --upgrade --user awscli
+#RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+#RUN apt-get install --yes nodejs
+#RUN pip3 install --upgrade pip setuptools
+#RUN pip3 install --upgrade --user awscli
