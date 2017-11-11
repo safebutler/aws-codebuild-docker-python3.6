@@ -20,7 +20,7 @@ FROM ubuntu:17.10
 ##########################################################################
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends \
-       python3 python3-pip 
+       python3 python3-pip python3-dev  # python3-dev needed by awscli
 RUN apt-get install -y --no-install-recommends \
        wget fakeroot ca-certificates tar gzip zip \
        autoconf automake bzip2 file g++ gcc imagemagick libbz2-dev libc6-dev libcurl4-openssl-dev \
