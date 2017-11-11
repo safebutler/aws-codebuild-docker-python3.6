@@ -20,7 +20,7 @@ FROM ubuntu:17.10
 ##########################################################################
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends \
-       wget fakeroot ca-certificates tar gzip zip \
+       wget python3 fakeroot ca-certificates tar gzip zip \
        autoconf automake bzip2 file g++ gcc imagemagick libbz2-dev libc6-dev libcurl4-openssl-dev \
        libdb-dev libevent-dev libffi-dev libgeoip-dev libglib2.0-dev libjpeg-dev libkrb5-dev \
        liblzma-dev libmagickcore-dev libmagickwand-dev libmysqlclient-dev libncurses-dev libpng-dev \
@@ -28,7 +28,7 @@ RUN apt-get install -y --no-install-recommends \
        libyaml-dev make patch xz-utils zlib1g-dev unzip curl git
 
 RUN wget "https://bootstrap.pypa.io/get-pip.py" -O /tmp/get-pip.py \
-    && python /tmp/get-pip.py \
+    && python3 /tmp/get-pip.py \
     && pip install awscli==1.11.25 \
     && rm -fr /var/lib/apt/lists/* /tmp/* /var/tmp/* 
  
