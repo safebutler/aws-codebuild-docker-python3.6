@@ -70,8 +70,8 @@ ENTRYPOINT ["dockerd-entrypoint.sh"]
 #  Customize the build environment for our own stack
 ##########################################################################
 
-# Install node7
-#RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
-#RUN apt-get install --yes nodejs
-#RUN pip3 install --upgrade pip setuptools
-#RUN pip3 install --upgrade --user awscli
+# Install node8. node7 can't be installed on ubuntu 17.10 (https://github.com/nodesource/distributions/issues/543)
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+RUN apt-get install --yes nodejs
+RUN pip3 install --upgrade pip setuptools
+RUN pip3 install --upgrade --user awscli
