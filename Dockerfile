@@ -25,22 +25,7 @@ RUN apt-get install -y --no-install-recommends \
        libdb-dev libevent-dev libffi-dev libgeoip-dev libglib2.0-dev libjpeg-dev libkrb5-dev \
        liblzma-dev libmagickcore-dev libmagickwand-dev libmysqlclient-dev libncurses-dev libpng-dev \
        libpq-dev libreadline-dev libsqlite3-dev libssl-dev libtool libwebp-dev libxml2-dev libxslt-dev \
-       libyaml-dev make patch xz-utils zlib1g-dev unzip curl
-RUN apt-get -qy build-dep git
-RUN apt-get -qy install libcurl4-openssl-dev git-man liberror-perl
-RUN mkdir -p /usr/src/git-openssl \
-    && cd /usr/src/git-openssl \
-    && apt-get source git \
-    && cd $(find -mindepth 1 -maxdepth 1 -type d -name "git-*") \
-    && sed -i -- 's/libcurl4-gnutls-dev/libcurl4-openssl-dev/' ./debian/control \
-    && sed -i -- '/TEST\s*=\s*test/d' ./debian/rules \
-    && dpkg-buildpackage -rfakeroot -b \
-    && find .. -type f -name "git_*ubuntu*.deb" -exec dpkg -i \{\} \; \
-    && rm -rf /usr/src/git-openssl \
-# Install dependencies by all python images equivalent to buildpack-deps:jessie
-# on the public repos.
-    && rm -rf /var/lib/apt/lists/* \
-    && apt-get clean
+       libyaml-dev make patch xz-utils zlib1g-dev unzip curl git
 
 RUN wget "https://bootstrap.pypa.io/get-pip.py" -O /tmp/get-pip.py \
     && python /tmp/get-pip.py \
