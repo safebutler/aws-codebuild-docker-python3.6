@@ -39,7 +39,7 @@ ENV DOCKER_BUCKET="get.docker.com" \
     DIND_COMMIT="3b5fac462d21ca164b3778647420016315289034"
 
 COPY dockerd-entrypoint.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/docker-entrypoint.sh  # https://github.com/moby/moby/issues/27182
+RUN chmod +x /usr/local/bin/dockerd-entrypoint.sh  # https://github.com/moby/moby/issues/27182
 
 # From the docker:1.11
 RUN set -x \
