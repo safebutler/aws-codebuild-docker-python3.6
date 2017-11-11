@@ -64,8 +64,6 @@ RUN set -x \
 
 VOLUME /var/lib/docker
 
-ENTRYPOINT ["dockerd-entrypoint.sh"]
-
 ##########################################################################
 #  Customize the build environment for our own stack
 ##########################################################################
@@ -75,3 +73,7 @@ RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get install --yes nodejs
 RUN pip3 install --upgrade pip setuptools
 RUN pip3 install --upgrade --user awscli
+
+
+ENTRYPOINT ["dockerd-entrypoint.sh"]
+
